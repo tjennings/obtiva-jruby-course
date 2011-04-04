@@ -1,0 +1,73 @@
+1. Install Java 1.6
+  1.1 Mac
+    You should have Java already installed
+    you can skip this step, but check
+    your java version with "java -version"
+    It should be 1.6 or later
+
+  1.2 Linux / Windows
+    You can download the latest Java SDK here: 
+    http://www.oracle.com/technetwork/java/javase/downloads/index.html
+    Follow the provided instructions.  You 
+    Can verify your install by typing "java -version" 
+    from a terminal 
+
+2. Install JRuby 1.6
+  2.1 Mac / Linux
+    I HIGHLY recommend you use rvm to manage your 
+    installed ruby interpreters, including JRuby
+    
+    2.1.1 Installing RVM (http://rvm.beginrescueend.com/)
+      Try the quick install first (from a shell): 
+        $ bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+
+      *** Make sure you follow the on-screen instructions!!!!
+
+      If that doesn't work or you'd like to install it for your user only, 
+      try one of the install instructions here: 
+
+      http://rvm.beginrescueend.com/rvm/install/
+
+    2.1.2 Installing JRuby with rvm
+      Pretty simple: 
+        $ rvm install jruby-1.6.0
+      Now use it: 
+        $ rvm use jruby-1.6.0
+      And to go back to the default ruby: 
+        $ rvm system
+    2.1.3 Creating and using a gemset
+        Gemsets are different sets of gems that you 
+        can use by a name you provide.  let's create
+        a gemset for JRuby: 
+          $ rvm use jruby-1.6.0
+          $ rvm gemset create reddirt
+
+        To chose the gemset and ruby at the same time: 
+          $ rvm use jruby-1.6.0@reddirt
+
+  2.2 Windows / no RVM
+    Follow the JRuby installation instructions here: 
+      http://www.jruby.org/getting-started
+    
+    Make sure the following two commands work for you: 
+      $ jruby --help
+      $ jirb
+
+3. Installing Gems
+  3.1 rvm users
+    $ rvm gemset import course.gems
+
+  3.2 Windows / non rvm users
+    Open the gemfile and install each gem + version by hand. 
+    Or write a script for it!
+
+4. Testing things out
+  3.1 Jruby
+    From the course directory run: 
+      $ ruby first_half/layouts.rb
+  3.2 Rails
+    From the course direcory: 
+      $ cd second_half/deploying_rails/hello_world
+      $ rails server
+
+    Go to localhost:3000 in your browser, you should see "hello world"
