@@ -12,13 +12,19 @@ class PressTheButtonUI
     frame.default_close_operation = JFrame::EXIT_ON_CLOSE
     frame.setSize(450,450)
     button = JButton.new("Press ME")
+
     button.add_action_listener self
+    button.add_action_listener do |event|
+      puts "BLOCK: " + event.source.label
+    end
+
     frame.add button
     frame.visible = true
   end
 
   def actionPerformed(event)
-    puts event.source.label
+    puts  "METHOD: " + event.source.label
   end
 end
 PressTheButtonUI.new
+
